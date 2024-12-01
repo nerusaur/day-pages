@@ -1,0 +1,648 @@
+
+:root {
+  --bg-color: #F9F298;      /* Pure white background */
+  --text-color: #EF88A3;     /* Dark gray text for contrast */
+  --button-bg: hsl(0, 0%, 90%);       /* Light gray button */
+  --button-text: hsl(0, 0%, 20%);     /* Darker gray text for buttons */
+  --scrollbar-bg: hsl(0, 0%, 85%);    /* Very light gray scrollbar */
+  --scrollbar-thumb: hsl(0, 0%, 60%); /* Gray thumb for visibility */
+  --button-LogOut: hsl(0, 0%, 90%);   /* Matching log-out button */
+  --text-black: hsl(0, 0%, 0%);   /* text-black */
+  --new-old:hsl(0, 0%, 93%); 
+}
+/* General Styles */
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+  padding-top: 90px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  line-height: 1.6;
+  background-color: #fdfdfd;
+  color: #333;
+
+}
+html{
+scroll-behavior: smooth;
+}
+nav {
+  height: 90px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0; /* Sticks to the top of the viewport */
+  z-index: 1000; /* Ensures it stays above other elements */
+  background-color: #353A5A;/* Semi-transparent background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+
+.nav-header {
+  display: flex;
+  flex-direction: row; /* Default, ensures items are in a row */
+  align-items: center; /* Align items vertically */
+  padding: 10px;
+  padding-left: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 150px;
+}
+
+.logo {
+  display: inline-block;
+  height: 10vh;
+  margin-right: 10px; /* Add space between logo and text */
+}
+
+.nav-header p {
+color:#F9F298;
+  font-size: 1.4rem;
+  margin: 0; /* Remove default margin for better alignment */
+}
+.nav-toggle{
+  display: none;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 50%;
+  border: 0
+}
+#go{
+  width:50px;
+  height: 50px;
+}
+.links{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+a {
+  text-decoration: none;
+  color: #FCFBF9;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+a:hover {
+  color: #FFD700; /* Change to a gold color on hover */
+  transform: scale(1.1); /* Slightly enlarge the text */
+}
+
+.show{
+  display: flex;
+  background-color: #000;
+}
+
+/* Button Styles */
+.logout-button, #updateButton{
+  font-family: "Roboto", sans-serif;
+  background-color:#F9F298;
+  color: #EF88A3;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.02rem;
+  border-radius: 20px;
+  cursor: pointer;
+  animation: slideFromLeft 1.4s ease-out;
+  border: 1px  black solid;
+  
+}
+#submit:hover {
+  scale:1.03;
+}
+.btn-start:hover, .LogOut:hover, #deleteButton  {
+    opacity: 0.9;
+    scale: 1.1;
+}
+/* Section Styles */
+section {
+  padding: 2em 1.5em;
+  text-align: center;
+}
+
+/* Section Styling */
+/* Section Styling */
+/* Reset Margins and Padding */
+#home h1, #home p, .btn-start {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+}
+
+
+#home {
+  background-image: url("img/bg.png");
+  background-size: cover; /* Make the background cover the entire page */
+  background-position:30% 70%;
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Padding inside the section */
+  padding-left: 15%;
+  color: white;
+  display: flex;
+  font-size: 2rem;
+  align-items: start;
+  flex-direction: column; 
+}
+
+#home h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;          /* Maximum font weight */
+  font-size: 80px;
+  margin-top: 15%;
+  margin-bottom: 5px;        /* Added missing semicolon */
+  letter-spacing: 8px;       /* Increased letter-spacing */
+  text-transform: uppercase; /* Optional: Makes text uppercase */
+  color: #ffffff;               /* Ensures boldness is visible */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
+}
+
+
+#home p {
+  font-size: 60px;
+  margin-bottom: 10px; /* Minimal space below p */
+}
+
+.btn-start, #deleteButton {
+  background-color: #f9f298;
+  color: #ef88a3;
+  padding: 0.7rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  animation: slideFromLeft 1.4s ease-out;
+  margin-top: 5px; /* Minimal space above the button */
+  margin-left: 7%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
+}
+
+/* Form Section with Two Columns and Gap */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+  gap: 50px; /* Increased gap between boxes */
+  padding: 2em 1.5em;
+  justify-items: center; /* Center content horizontally */
+  align-items: start; /* Align content to the top */
+  justify-content: center;
+}
+.full-height-container {
+height: 100vh;
+display: flex; /* Optional: for centering content */
+justify-content: center; /* Optional: horizontal centering */
+align-items: center; /* Optional: vertical centering */
+
+}
+.box {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%; /* Ensures the box takes full column width */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.entry-title, .mood-dropdown, .mood-dropdown-filter{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1em;
+}
+.mood-dropdown-filter{
+  width: 20%;
+  font-size: 0.7em;
+}
+#period-selector {
+  width: 40%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+.entry-box{
+
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 20px;
+font-size: 1em;
+height: 40vh;
+}
+.entry-gratitude{
+width: 100%;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 30px;
+font-size: 1em;
+height: 8vh;
+}
+
+#preview-image {
+cursor: pointer;
+width: 100%; 
+max-width: 450px; 
+aspect-ratio: 1 / 1; /* Ensures the image maintains a square aspect ratio */
+object-fit: cover; /* Ensures the image fills the square without distortion */
+border-radius: 9px; /* Rounded corners */
+margin: 0;
+display: flex; /* Ensures proper layout */
+justify-content: center;
+}
+
+
+#preview-image:hover{
+  scale: 1.02;
+  content: "insert a Picture";
+}
+#submit {
+font-family: "Kumar One", serif;
+  background: #F9F298;
+  color: #EF88A3;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button#submit:hover {
+  background: #f3eeae;
+}
+
+/* Previous Entries Section */
+#previous {
+  position: relative;
+  background-image: url("img/book_ring.png");
+  background-position: center -170px; 
+  background-size: contain; 
+  padding-top: 100px; 
+  text-align: center; 
+ 
+}
+
+#previous h1 {
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  position: relative; /* Allow further positioning adjustments */
+  top: -50px; /* Move the text closer to the top */
+  font-size: 2rem; /* Adjust font size for better visibility */
+  color: #333; /* Adjust text color if necessary */
+}
+
+.previous .history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.history{
+color: var(--text-black);
+ display: flex;
+ height: 100vh;
+ width: 95%;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ border: unset;
+ overflow-y: scroll;
+ 
+}
+::-webkit-scrollbar{
+
+margin-right: 10%;
+}
+.previous .history div {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.previous h1{
+font-size: 2rem;
+}
+/* Mood Chart Section */
+
+.mood-content {
+  display: flex;
+  gap: 20px;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%; /* Make it responsive to its parent */
+  max-width: 400px; /* Fixed maximum width */
+  height: auto; /* Adjust height proportionally */
+  aspect-ratio: 1; /* Keep it square (1:1 aspect ratio) */
+}
+
+
+.text-container {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+#period-selector {
+  margin-bottom: 10px;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+#mood-percentage {
+  font-weight: bold; /* Example: Use a valid property */
+}
+
+
+#image-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+#image-container.image-button{
+cursor: pointer;
+width: 100%; 
+max-width: 450px; 
+aspect-ratio: 1 / 1; /* Ensures the image maintains a square aspect ratio */
+object-fit: cover; /* Ensures the image fills the square without distortion */
+border-radius: 9px; /* Rounded corners */
+margin-left: 2vh;
+display: flex; /* Ensures proper layout */
+justify-content: center;
+}
+/* #image-container img {
+  max-width: 400px;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  padding: 10px;
+} */
+.entry-box-container {
+font-family: "Sanserif", serif;
+position: relative; /* Ensure the pseudo-element is positioned relative to this container */
+width: 300px; /* Example width, adjust as needed */
+height: 300px; /* Equal height to create a square container */
+background-color: #f5f5f5; /* Example background color */
+border-radius: 20px; /* Optional: rounded edges for the container */
+overflow: hidden; /* Ensure the pseudo-element stays within bounds */
+}
+
+.entry-box-container::after {
+width: 100px; /* Fixed width for the pseudo-element box */
+height: 100px; /* Equal height to create a square */
+border-radius: 10px; /* Optional: rounded edges for the box */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+opacity: 0; /* Hidden by default */
+transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth animations */
+display: flex; /* Center text inside the box */
+justify-content: center;
+align-items: center;
+font-size: 1rem;
+}
+
+.entry-box-container:hover::after {
+opacity: 1; /* Show on hover */
+transform: translate(-50%, -50%) scale(1.1); /* Slight scaling effect */
+}
+/* animation section */
+
+div.entry-box-container{
+animation: appear 5s linear;
+animation-timeline: view();
+animation-range: entry 30%;
+}
+#create{
+  margin-top: 0;
+  
+  background-color: #353A5A;
+}
+.previous, #moods,#previous{
+  
+animation: appear 5s linear;
+animation-timeline: view();
+animation-range: entry 0 cover 20%;
+}
+/* Parent container with responsive grid */
+#moods {
+  animation: slideFromLeft 1.4s ease-out;
+  background-color: #353A5A;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns by default */
+  gap: 20px;
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+/* Section styling */
+.mood-chart-section {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 10px; /* Consistent rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center-align text */
+  max-width: 900px; /* Limit width for readability */
+  margin: 20px auto; /* Center the section with margin */
+  box-sizing: border-box;
+}
+
+/* Header styling */
+.mood-chart-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Chart container styling */
+.chart-container {
+  max-width: 70%;
+  height: auto;
+}
+
+/* Disable pointer events on the chart */
+#moodChart {
+  pointer-events: none;
+}
+/* Responsive behavior */
+@media (max-width: 933px) {
+  #moods {
+    grid-template-columns: 1fr; /* Switch to one column */
+    height: 150vh;
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes appear{
+from {
+  opacity: 0;
+  scale:0.5;
+}
+to{
+  opacity: 1;
+  scale:1;
+}
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-container p {
+  margin: 0;
+}
+
+.footer-container nav {
+  margin-top: 10px;
+}
+
+.footer-container a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive Design */
+@media (max-width: 785px) {
+#home{
+display: block;
+justify-content: center;
+align-items: baseline;
+margin: 0;
+}
+#home h1{
+font-size: 1.75rem;
+}
+a.btn-start{
+display: inline-block;
+margin: 0;
+font-size: 1.25rem;
+}
+
+}
+@media (max-width: 933px) {
+.mood-chart-section{
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.mood-content{
+  display: block;
+    justify-content: center;
+  align-items: center;
+}
+
+  .box {
+      max-width: 100%;
+  }
+
+  .links {
+      flex-direction: column;
+      gap: 10px;
+  }
+  a {
+      font-size: 1.10rem; 
+    }
+    .nav-toggle {
+      
+      display: block;
+      cursor: pointer;
+    }
+    
+    .links {
+      position: absolute;
+      top: 50px;
+      display: none;
+      text-align: center;
+      width: 100%;
+      background-color: #353A5A;
+    }
+    
+    .show {
+      display: block;
+    }
+}
+
+
+#try, .try{
+height: 100vh;
+display: flex;
+ height: 100vh;
+ width: 95%;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ border: unset;
+ overflow-y: scroll;
+}
+@media (max-width: 375px) {
+#moods{
+  height: 100vh;
+}
+p#mood-percentage{
+  font-size: 0.7em;
+}
+
+
+}
